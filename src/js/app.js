@@ -5,7 +5,8 @@ import { Modal } from "bootstrap";
 
 var modal;
 document.addEventListener("DOMContentLoaded", () => {
-    renderGallery();
+    onfilterPaintings();
+    renderGallery(paintings);
     initModal();
 });
 
@@ -15,18 +16,15 @@ function initModal(){
         backdrop: true
     })
     
-    /*
-    
     let elementModal = document.getElementById("gallery-modal");
     elementModal.addEventListener('hidden.bs.modal', event => {
-  // do something...
         modal._dialog.querySelector(".modal-body").innerHTML = "";
-    });*/
+    });
 }
-
-function renderGallery() {
+function renderGallery(pictures) {
     let gallery = document.getElementById('gallery');
-    paintings.forEach((painting) => {
+    gallery.innerHTML = "";//always ensure clean the content.
+    pictures.forEach((painting) => {
 
         let divColumn = document.createElement("div");
         divColumn.className = "col-md-3";
@@ -48,13 +46,10 @@ function renderGallery() {
         gallery.appendChild(divColumn);
 
         //se puede hacer la subscripcion aqui?
-        div.addEventListener("click", function (event) {
-            onSelectPainting(painting);
-        });
+        div.addEventListener("click", function (event) {onSelectPainting(painting);});
 
     });
 }
-
 function onSelectPainting(painting) {
     modal.show();
     let modalBody = modal._dialog.querySelector(".modal-body");
@@ -71,4 +66,18 @@ function onSelectPainting(painting) {
         </div>
     `;
     modalBody.appendChild(paintingCard);
+}
+function onfilterPaintings(){
+    let filterPainting = document.getElementById("searchInput");
+    filterPainting.addEventListener("change",function(event){
+        let text = event.target.value.toLowerCase();
+        
+        let paintingFilter = paintings.filter((painting)=> {
+            return painting.title.toLowerCase().includes(text) 
+            || painting.author.toLowerCase().includes(text) 
+            || painting.year.toString().includes(text)
+            || painting.description.toLowerCase().includes(text);
+        });
+        renderGallery(paintingFilter);
+    });
 }

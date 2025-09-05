@@ -1,4 +1,7 @@
-export var fer = 'fer';
+export const fer = 'fer';
+var object1 = {};
+var object2 = 2;
+var text = "grito";
 export const paintings = [
   { title: "La noche estrellada", author: "Vincent van Gogh", year: 1889, img: "https://picsum.photos/400/300?random=1", description: "Una de las obras más famosas de Van Gogh, pintada en Saint-Rémy-de-Provence." },
   { title: "La Gioconda", author: "Leonardo da Vinci", year: 1503, img: "https://picsum.photos/400/300?random=2", description: "También conocida como Mona Lisa, es uno de los retratos más enigmáticos de la historia del arte." },
