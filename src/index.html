@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="./css/styles.css" />
 </head>
 
-<body class="d-flex vh-100 justify-content-center align-items-center bg-light">
+<body class="d-flex justify-content-center align-items-center bg-light">
     <div id="app">
         <!--App content-->
-        <div class="container py-5">
+        <div class="container ">
 
             <!-- Título -->
             <h1 class="mb-4 text-center text-primary">Galería de Pinturas</h1>
@@ -24,16 +24,42 @@
             </div>
 
             <!-- Galería -->
-            <div id="gallery" class="row g-4 main-gallery">
-                <!-- Aquí se insertarán las cards dinámicamente -->
-                
+            <div id="gallery" class="row g-4 main-gallery mt-3">
+                <!-- Aquí se insertarán las cards dinámicamente col-3 -->
+                <div class="row">
+
+
+                </div>
             </div>
 
             <!-- Paginación -->
             <nav>
                 <ul id="pagination" class="pagination justify-content-center mt-4"></ul>
             </nav>
-
+            <div class="modal fade" id="gallery-modal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            modal 1
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="gallery-modal-2" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            modal 2
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
